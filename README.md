@@ -25,4 +25,4 @@ npm run build
 npm run preview
 ```
 
-Glyph source is derived from `andrewtavis/sf-symbols-online`. This project is not affiliated with Apple.
+Glyph metadata is generated from `andrewtavis/sf-symbols-online`, and glyph images load from that repository's raw GitHub assets to keep the deployment small. This project is not affiliated with Apple.
