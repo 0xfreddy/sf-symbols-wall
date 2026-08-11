@@ -12,18 +12,6 @@ const filters = [
   { id: "square", label: "Square" },
 ];
 
-const accents = [
-  "aqua",
-  "graphite",
-  "candy",
-  "solar",
-  "violet",
-  "mint",
-  "ink",
-  "pearl",
-  "ember",
-];
-
 function matchesFilter(symbol, filter) {
   if (filter === "all") return true;
   if (filter === "fill") return symbol.name.includes(".fill");
@@ -144,9 +132,9 @@ function App() {
       </section>
 
       <section className="grid" aria-live="polite">
-        {visibleSymbols.map((symbol, index) => (
+        {visibleSymbols.map((symbol) => (
           <button
-            className={`symbol-card ${accents[index % accents.length]}`}
+            className="symbol-card"
             key={symbol.name}
             type="button"
             onClick={() => copySymbolName(symbol.name)}

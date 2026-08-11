@@ -165,9 +165,16 @@ input {
 h1 {
   margin: 0;
   max-width: 780px;
+  font-family:
+    "SF Pro Display",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    sans-serif;
   font-size: clamp(4.2rem, 11vw, 10.5rem);
   line-height: 0.84;
   letter-spacing: 0;
+  font-weight: 850;
 }
 
 h1 span {
@@ -265,45 +272,18 @@ h1 span {
   display: grid;
   place-items: center;
   overflow: hidden;
+  border: 1.2px solid var(--line);
   border-radius: 28%;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.08) 36%),
-    var(--tile-bg);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    inset 0 -18px 35px rgba(0, 0, 0, 0.16),
-    0 18px 38px rgba(0, 0, 0, 0.16);
+  background: transparent;
+  box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.18);
   transform: translateY(0);
-  transition: transform 180ms ease, box-shadow 180ms ease;
-}
-
-.glass-icon::before {
-  content: "";
-  position: absolute;
-  inset: 8% 12% auto;
-  height: 21%;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.45);
-  filter: blur(1px);
-}
-
-.glass-icon::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background:
-    radial-gradient(circle at 70% 22%, rgba(255, 255, 255, 0.62), transparent 18%),
-    linear-gradient(140deg, transparent 38%, rgba(255, 255, 255, 0.22) 48%, transparent 58%);
-  mix-blend-mode: soft-light;
+  transition: border-color 160ms ease, transform 160ms ease, background 160ms ease;
 }
 
 .symbol-card:hover .glass-icon {
-  transform: translateY(-5px);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.58),
-    inset 0 -18px 35px rgba(0, 0, 0, 0.16),
-    0 25px 54px rgba(0, 0, 0, 0.22);
+  border-color: rgba(0, 122, 255, 0.42);
+  background: rgba(0, 122, 255, 0.035);
+  transform: translateY(-2px);
 }
 
 .glass-icon img {
@@ -313,7 +293,6 @@ h1 span {
   height: 46%;
   object-fit: contain;
   user-select: none;
-  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.22));
 }
 
 .symbol-name {
@@ -330,42 +309,6 @@ h1 span {
   color: var(--tile-muted);
   font-size: 0.75rem;
   font-weight: 740;
-}
-
-.aqua {
-  --tile-bg: linear-gradient(180deg, #d2f8ff, #1f98ff 52%, #0059ff);
-}
-
-.graphite {
-  --tile-bg: linear-gradient(180deg, #2a2d31, #050607 62%, #17191c);
-}
-
-.candy {
-  --tile-bg: linear-gradient(160deg, #ff68f0, #b400d9 58%, #5b00a8);
-}
-
-.solar {
-  --tile-bg: linear-gradient(150deg, #fff98a, #ffd100 52%, #ff7a00);
-}
-
-.violet {
-  --tile-bg: radial-gradient(circle at 70% 25%, #ff70d8, #6237ff 45%, #151028 78%);
-}
-
-.mint {
-  --tile-bg: linear-gradient(145deg, #dbfff3, #12cfae 48%, #018c72);
-}
-
-.ink {
-  --tile-bg: linear-gradient(155deg, #30343b, #111216 50%, #050505);
-}
-
-.pearl {
-  --tile-bg: linear-gradient(150deg, #ffffff, #dce6ff 56%, #8fa8ff);
-}
-
-.ember {
-  --tile-bg: linear-gradient(160deg, #fff2cc, #ff8f1f 52%, #b31818);
 }
 
 .footnote {
