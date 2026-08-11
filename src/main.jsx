@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
-import { Check, Copy, Moon, Search, Sun, X } from "lucide-react";
+import { Check, Moon, Search, Sun, X } from "lucide-react";
 import symbols from "./symbols.json";
 import "./styles.css";
 
@@ -68,15 +68,21 @@ function App() {
 
   return (
     <main className="page-shell">
-      <header className="topbar">
-        <a className="brand" href="#top" aria-label="SF Symbols Wall home">
-          <span className="brand-mark">
-            <span />
-          </span>
-          <span>Symbol Wall</span>
-        </a>
+      <section className="hero" id="top">
+        <h1>
+          A wall of <span>symbols.</span>
+        </h1>
+        <p className="lede">
+          Search every bundled glyph from the reference set, tap a tile, and the SF Symbol name is
+          copied to your clipboard.
+        </p>
+      </section>
 
-        <div className="top-actions">
+      <section className="controls" aria-label="Symbol filters">
+        <p>
+          <strong>{visibleSymbols.length}</strong> visible <span>/</span> {symbols.length} symbols
+        </p>
+        <div className="controls-actions">
           <label className="search-control" aria-label="Search symbols">
             <Search size={18} strokeWidth={2.2} />
             <input
@@ -91,6 +97,19 @@ function App() {
             ) : null}
           </label>
 
+          <div className="filter-pills">
+            {filters.map((item) => (
+              <button
+                className={filter === item.id ? "active" : ""}
+                key={item.id}
+                type="button"
+                onClick={() => setFilter(item.id)}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+
           <button
             className="icon-button"
             type="button"
@@ -99,35 +118,6 @@ function App() {
           >
             {theme === "light" ? <Moon size={19} /> : <Sun size={19} />}
           </button>
-        </div>
-      </header>
-
-      <section className="hero" id="top">
-        <p className="kicker">SF Symbols, lined up for copy-paste work.</p>
-        <h1>
-          A wall of <span>symbols.</span>
-        </h1>
-        <p className="lede">
-          Search every bundled glyph from the reference set, tap a tile, and the SF Symbol name is
-          copied to your clipboard.
-        </p>
-      </section>
-
-      <section className="controls" aria-label="Symbol filters">
-        <p>
-          <strong>{visibleSymbols.length}</strong> visible <span>/</span> {symbols.length} symbols
-        </p>
-        <div className="filter-pills">
-          {filters.map((item) => (
-            <button
-              className={filter === item.id ? "active" : ""}
-              key={item.id}
-              type="button"
-              onClick={() => setFilter(item.id)}
-            >
-              {item.label}
-            </button>
-          ))}
         </div>
       </section>
 
